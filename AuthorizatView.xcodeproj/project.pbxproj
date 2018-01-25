@@ -32,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D61D67A4201965DF00B5EAAC /* AuthorizatView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthorizatView.entitlements; sourceTree = "<group>"; };
+		D61D67A92019D58100B5EAAC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D65E346420171C70001CCB57 /* UIView+GradientBgColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GradientBgColor.m"; sourceTree = "<group>"; };
 		D65E346520171C70001CCB57 /* UIView+GradientBgColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GradientBgColor.h"; sourceTree = "<group>"; };
 		D67BB8FF201594F000F99DF4 /* AuthorizatView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthorizatView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,9 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D61D67AA2019D5F600B5EAAC /* defin */ = {
+			isa = PBXGroup;
+			children = (
+				D61D67A92019D58100B5EAAC /* PrefixHeader.pch */,
+			);
+			path = defin;
+			sourceTree = "<group>";
+		};
 		D65E3467201721C8001CCB57 /* WLAuthorizatView */ = {
 			isa = PBXGroup;
 			children = (
+				D61D67AA2019D5F600B5EAAC /* defin */,
 				D65E3469201721E4001CCB57 /* tool */,
 				D65E3468201721DB001CCB57 /* model */,
 				D67BB92620159C0600F99DF4 /* WLAuthorizatView.h */,
@@ -129,6 +140,7 @@
 		D67BB901201594F000F99DF4 /* AuthorizatView */ = {
 			isa = PBXGroup;
 			children = (
+				D61D67A4201965DF00B5EAAC /* AuthorizatView.entitlements */,
 				D67BB902201594F000F99DF4 /* AppDelegate.h */,
 				D67BB903201594F000F99DF4 /* AppDelegate.m */,
 				D67BB905201594F000F99DF4 /* ViewController.h */,
@@ -202,6 +214,11 @@
 					D67BB8FE201594F000F99DF4 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					D67BB916201594F000F99DF4 = {
 						CreatedOnToolsVersion = 9.1;
@@ -411,8 +428,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AuthorizatView/AuthorizatView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = US3V2JJL69;
+				GCC_PREFIX_HEADER = "${SRCROOT}/AuthorizatView/WLAuthorizatView/defin/PrefixHeader.pch";
 				INFOPLIST_FILE = AuthorizatView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -426,8 +445,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AuthorizatView/AuthorizatView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = US3V2JJL69;
+				GCC_PREFIX_HEADER = "${SRCROOT}/AuthorizatView/WLAuthorizatView/defin/PrefixHeader.pch";
 				INFOPLIST_FILE = AuthorizatView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

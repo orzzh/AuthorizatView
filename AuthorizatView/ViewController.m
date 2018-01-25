@@ -22,6 +22,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
 }
+static NSString *const KVO_CONTEXT_ADDRESS_CHANGED = @"KVO_CONTEXT_ADDRESS_CHANGED";
 
 - (IBAction)author:(id)sender {
     
@@ -35,6 +36,7 @@
     WLAuthorizatView *v = [[WLAuthorizatView alloc]init];
     v.data = ary;
     [v show];
+    
 }
 
 - (void)sss{

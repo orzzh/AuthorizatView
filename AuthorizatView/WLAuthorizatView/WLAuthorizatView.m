@@ -13,9 +13,7 @@
 
 
 static NSString *CELL = @"cellid";
-
-#define Screen_Width         [[UIScreen mainScreen] bounds].size.width
-#define Screen_Height        [[UIScreen mainScreen] bounds].size.height
+#define BOX_W Screen_Width-80*SCALE
 
 @interface WLAuthorizatView()<UITableViewDelegate,UITableViewDataSource,AuthorizatTableViewCellDelegate>
 {
@@ -155,36 +153,36 @@ static NSString *CELL = @"cellid";
 
 - (void)setData:(NSArray *)data{
     _data = data;
-    self.centerView.frame = CGRectMake(0, 0, self.frame.size.width-80, self.data.count*80+80+50+10);
+    self.centerView.frame = CGRectMake(0, 0, BOX_W, self.data.count*80+80+50+10);
     self.centerView.center = self.center;
-    self.tableView.frame = CGRectMake(0, 85, self.frame.size.width-80, self.data.count*80);
-    btn.frame = CGRectMake(0, self.tableView.frame.origin.y+self.tableView.frame.size.height+2, self.centerView.frame.size.width, 50);
+    self.tableView.frame = CGRectMake(0, 85, BOX_W, self.data.count*80);
+    btn.frame = CGRectMake(0, self.tableView.frame.origin.y+self.tableView.frame.size.height+2, BOX_W, 50);
 }
 
 #pragma mark - lazyload
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 85, self.frame.size.width-80, self.data.count*80) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 85, BOX_W, self.data.count*80) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.rowHeight = 80;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 80)];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, BOX_W, 80)];
         imageView.contentMode = UIViewContentModeScaleToFill;
 //        imageView.image = [UIImage imageNamed:@"bg_jurisdiction_top"];
         [imageView setGradientBgColorWithColors:@[RGB_COLOR(181,229,98),RGB_COLOR(137, 218, 104)] locations:@[@0.,@1.0] startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
         [self.centerView addSubview:imageView];
         
-        UILabel *vi = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, _tableView.frame.size.width, 20)];
+        UILabel *vi = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, BOX_W, 20)];
         vi.text = @"开启你的神秘之旅";
         vi.textAlignment = 1;
         vi.textColor = [UIColor whiteColor];
         vi.font = [UIFont systemFontOfSize:16];
         [imageView addSubview:vi];
         
-        UILabel *vi1 = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, _tableView.frame.size.width, 20)];
+        UILabel *vi1 = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, BOX_W, 20)];
         vi1.text = @"- 看看第一步要完成什么吧 -";
         vi1.textAlignment = 1;
         vi1.textColor = [UIColor whiteColor];
@@ -195,7 +193,7 @@ static NSString *CELL = @"cellid";
         [btn setTitle:@"一键开启" forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        btn.frame = CGRectMake(0, _tableView.frame.origin.y+_tableView.frame.size.height, self.centerView.frame.size.width, 50);
+        btn.frame = CGRectMake(0, _tableView.frame.origin.y+_tableView.frame.size.height, BOX_W, 50);
         [btn addTarget:self action:@selector(openAll) forControlEvents:UIControlEventTouchUpInside];
         [self.centerView addSubview:btn];
         
@@ -209,7 +207,7 @@ static NSString *CELL = @"cellid";
 
 - (UIView *)centerView{
     if (!_centerView) {
-        _centerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width-80, self.data.count*80+80+50+10)];
+        _centerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, BOX_W, self.data.count*80+80+50+10)];
         _centerView.center = self.center;
         _centerView.backgroundColor = [UIColor whiteColor];
     }

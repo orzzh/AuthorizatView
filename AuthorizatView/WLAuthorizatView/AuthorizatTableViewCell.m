@@ -10,6 +10,8 @@
 #import "AuthorizatModel.h"
 #import "UIView+GradientBgColor.h"
 
+#define WIDTH_SCALE SCREEN_WIDTH/375.0
+
 @interface AuthorizatTableViewCell()
 
 @property (nonatomic,strong)UIButton *openBtn;
@@ -94,11 +96,11 @@
 - (UIButton *)openBtn{
     if (!_openBtn) {
         _openBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _openBtn.frame = CGRectMake((self.frame.size.width-80)*5/4-80, 25, 60, 25);
+        _openBtn.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width-80*SCALE-80*SCALE, 25, 60*SCALE, 25);
         _openBtn.layer.cornerRadius = 25/2;
         _openBtn.layer.borderColor = [UIColor grayColor].CGColor;
         _openBtn.layer.masksToBounds = YES;
-        _openBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+        _openBtn.titleLabel.font = [UIFont systemFontOfSize:13*SCALE];
         [self noSelect];
         [_openBtn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -108,14 +110,14 @@
 - (UIImageView *)img{
     if (!_img) {
         _img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-        _img.center = CGPointMake(50, 40);
+        _img.center = CGPointMake(45*SCALE, 40);
     }
     return _img;
 }
 
 - (UILabel *)title{
     if (!_title) {
-        _title = [[UILabel alloc]initWithFrame:CGRectMake(90, self.img.frame.origin.y+5, 150, 20)];
+        _title = [[UILabel alloc]initWithFrame:CGRectMake(80*SCALE, self.img.frame.origin.y+5, 150*SCALE, 20)];
         _title.font = [UIFont systemFontOfSize:16];
         _title.textColor = [UIColor blackColor];
     }
@@ -124,7 +126,7 @@
 
 - (UILabel *)subTitle{
     if (!_subTitle) {
-        _subTitle = [[UILabel alloc]initWithFrame:CGRectMake(90, self.img.frame.origin.y+25, 150, 20)];
+        _subTitle = [[UILabel alloc]initWithFrame:CGRectMake(80*SCALE, self.img.frame.origin.y+25, 150*SCALE, 20)];
         _subTitle.font = [UIFont systemFontOfSize:14];
         _subTitle.textColor = [UIColor grayColor];
     }
